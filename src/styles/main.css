@@ -1,0 +1,964 @@
+/* ── Google Fonts ── */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=DM+Sans:wght@300;400;500&display=swap');
+
+/* ── Reset ── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+/* ── Page root ── */
+.auth-root {
+  min-height: 100vh;
+  background: #0d0d14;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'DM Sans', sans-serif;
+  padding: 1.5rem;
+}
+
+/* ── Card panel ── */
+.auth-panel {
+  display: flex;
+  width: 100%;
+  max-width: 860px;
+  min-height: 540px;
+  border-radius: 24px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  box-shadow: 0 40px 90px rgba(0, 0, 0, 0.65);
+}
+
+/* ════════════════════════════
+   Left decorative column
+════════════════════════════ */
+.auth-deco {
+  flex: 0 0 310px;
+  background: linear-gradient(145deg, #1a1326 0%, #0f1a2e 60%, #0d1420 100%);
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: stretch;
+}
+
+.auth-deco::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 280px 280px at 25% 20%, rgba(212, 168, 67, 0.14) 0%, transparent 70%),
+    radial-gradient(ellipse 200px 200px at 85% 82%, rgba(100, 60, 200, 0.10) 0%, transparent 70%);
+}
+
+.auth-deco-inner {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 2.5rem;
+  width: 100%;
+}
+
+/* Brand */
+.auth-brand {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+}
+.auth-brand-mark {
+  color: #d4a843;
+  font-size: 22px;
+  line-height: 1;
+}
+.auth-brand-name {
+  font-family: 'Playfair Display', serif;
+  font-size: 19px;
+  font-weight: 600;
+  color: #fff;
+  letter-spacing: 0.02em;
+}
+
+/* Headline */
+.auth-deco-headline h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 2rem;
+  font-weight: 400;
+  line-height: 1.2;
+  color: #f5f0e8;
+  margin-bottom: 0.85rem;
+}
+.auth-deco-headline p {
+  font-size: 13.5px;
+  font-weight: 300;
+  color: rgba(255, 255, 255, 0.42);
+  line-height: 1.65;
+}
+
+/* Dots */
+.auth-deco-dots {
+  display: flex;
+  gap: 6px;
+}
+.auth-deco-dots span {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.15);
+}
+.auth-deco-dots span:first-child {
+  background: #d4a843;
+}
+
+/* ════════════════════════════
+   Right form column
+════════════════════════════ */
+.auth-form-col {
+  flex: 1;
+  background: #13131e;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2.5rem 2.25rem;
+}
+
+.auth-form-wrapper {
+  width: 100%;
+  max-width: 340px;
+}
+
+/* Heading */
+.auth-heading {
+  margin-bottom: 1.75rem;
+}
+.auth-heading h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.9rem;
+  font-weight: 400;
+  color: #f5f0e8;
+  margin-bottom: 4px;
+}
+.auth-heading p {
+  font-size: 13.5px;
+  font-weight: 300;
+  color: rgba(255, 255, 255, 0.33);
+}
+
+/* ════════════════════════════
+   AuthForm overrides
+════════════════════════════ */
+.auth-form-slide {
+  animation: authFadeIn 0.3s ease forwards;
+}
+
+.auth-form-slide .form-label {
+  font-size: 12px !important;
+  font-weight: 500 !important;
+  color: rgba(255, 255, 255, 0.5) !important;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 6px !important;
+}
+
+.auth-form-slide .form-control {
+  background: rgba(255, 255, 255, 0.05) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  border-radius: 10px !important;
+  color: #f5f0e8 !important;
+  font-family: 'DM Sans', sans-serif !important;
+  font-size: 14.5px !important;
+  padding: 0.7rem 1rem !important;
+  transition: border-color 0.2s, background 0.2s, box-shadow 0.2s;
+}
+
+.auth-form-slide .form-control::placeholder {
+  color: rgba(255, 255, 255, 0.18) !important;
+}
+
+.auth-form-slide .form-control:focus {
+  background: rgba(212, 168, 67, 0.06) !important;
+  border-color: rgba(212, 168, 67, 0.55) !important;
+  box-shadow: 0 0 0 3px rgba(212, 168, 67, 0.12) !important;
+  outline: none !important;
+  color: #f5f0e8 !important;
+}
+
+/* Button — works whether you use <Button> or bare <button> */
+.auth-form-slide .btn,
+.auth-form-slide .btn-primary,
+.auth-form-slide button[type="submit"] {
+  width: 100%;
+  padding: 0.8rem 1rem !important;
+  background: #d4a843 !important;
+  border: none !important;
+  border-radius: 10px !important;
+  color: #0d0d14 !important;
+  font-family: 'DM Sans', sans-serif !important;
+  font-size: 15px !important;
+  font-weight: 500 !important;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.15s !important;
+  box-shadow: none !important;
+}
+.auth-form-slide .btn:hover,
+.auth-form-slide .btn-primary:hover,
+.auth-form-slide button[type="submit"]:hover {
+  background: #e0b84e !important;
+  transform: translateY(-1px);
+}
+.auth-form-slide .btn:active,
+.auth-form-slide button[type="submit"]:active {
+  transform: translateY(0);
+}
+
+/* ════════════════════════════
+   Footer links
+════════════════════════════ */
+.auth-forgot {
+  text-align: right;
+  margin-top: 0.65rem;
+}
+.auth-forgot a {
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.32);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.auth-forgot a:hover {
+  color: #d4a843;
+}
+
+.auth-switch {
+  text-align: center;
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.3);
+  margin-top: 1.5rem;
+}
+.auth-switch a {
+  color: #d4a843;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  transition: opacity 0.2s;
+}
+.auth-switch a:hover {
+  opacity: 0.75;
+}
+
+/* ════════════════════════════
+   Animations
+════════════════════════════ */
+@keyframes authFadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ════════════════════════════
+   Mobile
+════════════════════════════ */
+@media (max-width: 620px) {
+  .auth-deco { display: none; }
+  .auth-panel { border-radius: 18px; min-height: unset; }
+  .auth-form-col { padding: 2rem 1.5rem; }
+}
+
+/* Category carousel — Swiper + side arrows; dots below track (home) */
+.category-carousel-outer {
+  width: 100%;
+  overflow: visible;
+  display: flex;
+  flex-direction: column;
+}
+
+.category-carousel-grid {
+  order: 1;
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 0.5rem 0.75rem;
+  width: 100%;
+}
+
+@media (min-width: 768px) {
+  .category-carousel-grid {
+    gap: 0.65rem 1rem;
+  }
+}
+
+.category-carousel-swiper-wrap {
+  min-width: 0;
+}
+
+.category-carousel-nav-btn {
+  width: 2.75rem;
+  height: 2.75rem;
+  padding: 0;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 0;
+}
+
+.category-swiper {
+  --swiper-pagination-color: var(--bs-primary, #0d6efd);
+  --swiper-pagination-bullet-size: 8px;
+}
+
+.category-swiper .swiper-pagination {
+  display: none;
+}
+
+.category-carousel-pagination-dots {
+  order: 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  padding-top: 0.65rem;
+  min-height: 1.25rem;
+}
+
+.category-carousel-pagination-dots .swiper-pagination-bullet {
+  margin: 0 4px !important;
+}
+
+@media (max-width: 576px) {
+  .category-carousel-nav-btn {
+    width: 2.35rem;
+    height: 2.35rem;
+  }
+
+  .category-carousel-nav-btn svg {
+    width: 17px;
+    height: 17px;
+  }
+}
+
+.category-carousel-card {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.category-carousel-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.12) !important;
+}
+
+.job-card {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  position: relative;
+}
+.job-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.12) !important;
+}
+
+.job-card-bookmark {
+  position: relative;
+  z-index: 2;
+  line-height: 0;
+  text-decoration: none;
+  opacity: 0.85;
+  transition: opacity 0.15s ease, transform 0.15s ease;
+}
+
+.job-card-bookmark:hover {
+  opacity: 1;
+  transform: scale(1.06);
+}
+
+.job-card-bookmark--active {
+  opacity: 1;
+  color: var(--bs-primary, #0d6efd) !important;
+}
+
+.job-detail-bookmark.active {
+  background-color: var(--bs-primary, #0d6efd);
+  border-color: var(--bs-primary, #0d6efd);
+  color: #fff;
+}
+
+/* Job detail — applicants list */
+.applicants-list-avatar {
+  width: 2.75rem;
+  height: 2.75rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.applicants-list-item {
+  transition: background-color 0.15s ease;
+}
+
+.applicants-list-item:hover {
+  background-color: rgba(var(--bs-primary-rgb, 13, 110, 253), 0.04);
+}
+
+.applicants-list-empty {
+  border-top: 1px solid var(--bs-border-color, #dee2e6);
+}
+
+/* Profile — applied jobs list */
+.applied-jobs-list-item {
+  transition: background-color 0.15s ease;
+}
+
+.applied-jobs-list-item:hover {
+  background-color: rgba(var(--bs-primary-rgb, 13, 110, 253), 0.04);
+}
+
+.profile-applied-empty {
+  border-top: 1px solid var(--bs-border-color, #dee2e6);
+}
+
+/* ═══════════════════════════════════════════════════════════
+   App shell — modern product UI (indigo / slate / glass)
+   Scoped under .app-shell so auth pages keep their own look.
+═══════════════════════════════════════════════════════════ */
+
+.app-shell {
+  --jp-indigo: #4f46e5;
+  --jp-indigo-deep: #3730a3;
+  --jp-cyan: #06b6d4;
+  --jp-violet: #7c3aed;
+  --jp-slate-900: #0f172a;
+  --jp-slate-600: #475569;
+  --jp-slate-400: #94a3b8;
+  --jp-surface: #ffffff;
+  --jp-radius: 20px;
+  --jp-radius-sm: 14px;
+  --jp-shadow: 0 4px 24px -4px rgba(15, 23, 42, 0.08);
+  --jp-shadow-lg: 0 24px 48px -12px rgba(15, 23, 42, 0.12);
+
+  --bs-primary: var(--jp-indigo);
+  --bs-primary-rgb: 79, 70, 229;
+  --bs-link-color: var(--jp-indigo);
+  --bs-link-hover-color: var(--jp-indigo-deep);
+  --bs-body-font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  --bs-body-color: var(--jp-slate-900);
+  --bs-border-color: rgba(15, 23, 42, 0.08);
+  --bs-body-bg: #f1f5f9;
+
+  min-height: 100vh;
+  background-color: #eef2f7;
+  background-image:
+    radial-gradient(ellipse 100% 80% at 100% -15%, rgba(99, 102, 241, 0.14), transparent 55%),
+    radial-gradient(ellipse 70% 50% at 0% 40%, rgba(6, 182, 212, 0.09), transparent 50%),
+    radial-gradient(ellipse 50% 40% at 80% 100%, rgba(124, 58, 237, 0.06), transparent 45%);
+  background-attachment: fixed;
+}
+
+.app-shell .jp-page {
+  padding-bottom: 3.5rem;
+}
+
+/* —— Navbar —— */
+.app-shell .jp-navbar {
+  position: sticky;
+  top: 0;
+  z-index: 1030;
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  background: rgba(255, 255, 255, 0.78) !important;
+  border-bottom: 1px solid rgba(15, 23, 42, 0.06) !important;
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.6) inset, 0 4px 20px -8px rgba(15, 23, 42, 0.08);
+}
+
+.app-shell .jp-brand {
+  font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+  font-size: 1.35rem;
+  letter-spacing: -0.03em;
+  background: linear-gradient(120deg, var(--jp-indigo) 0%, var(--jp-violet) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent !important;
+}
+
+.app-shell .jp-nav-link {
+  color: var(--jp-slate-600) !important;
+  border-radius: 999px;
+  padding: 0.45rem 0.9rem !important;
+  margin: 0 0.1rem;
+  transition: color 0.2s, background 0.2s;
+}
+
+.app-shell .jp-nav-link:hover {
+  color: var(--jp-indigo) !important;
+  background: rgba(79, 70, 229, 0.06);
+}
+
+.app-shell .jp-nav-link.active {
+  color: var(--jp-indigo) !important;
+  background: rgba(79, 70, 229, 0.1);
+  font-weight: 600 !important;
+}
+
+.app-shell .jp-btn-soft {
+  background: rgba(15, 23, 42, 0.06) !important;
+  border: 1px solid rgba(15, 23, 42, 0.08) !important;
+  color: var(--jp-slate-900) !important;
+  box-shadow: none !important;
+}
+
+.app-shell .jp-btn-soft:hover {
+  background: rgba(79, 70, 229, 0.1) !important;
+  border-color: rgba(79, 70, 229, 0.2) !important;
+  color: var(--jp-indigo-deep) !important;
+}
+
+.app-shell .jp-icon-btn {
+  border-radius: 50% !important;
+  width: 2.75rem;
+  height: 2.75rem;
+  padding: 0 !important;
+  display: inline-flex !important;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 6px 20px -4px rgba(79, 70, 229, 0.45) !important;
+}
+
+.app-shell .dropdown-menu {
+  border: none;
+  border-radius: var(--jp-radius-sm);
+  box-shadow: var(--jp-shadow-lg);
+  padding: 0.5rem;
+  margin-top: 0.5rem !important;
+}
+
+.app-shell .dropdown-item {
+  border-radius: 10px;
+  padding: 0.45rem 0.85rem;
+}
+
+/* —— Cards & surfaces —— */
+.app-shell .jp-rise {
+  border: 1px solid rgba(15, 23, 42, 0.06) !important;
+  border-radius: var(--jp-radius) !important;
+  box-shadow: var(--jp-shadow) !important;
+  background: var(--jp-surface);
+  transition: box-shadow 0.25s ease, transform 0.25s ease;
+}
+
+.app-shell .jp-rise:hover {
+  box-shadow: 0 12px 40px -8px rgba(15, 23, 42, 0.12) !important;
+}
+
+.app-shell .jp-job-card {
+  background: linear-gradient(165deg, rgba(99, 102, 241, 0.05) 0%, #fff 42%, #fff 100%);
+}
+
+.app-shell .jp-card-header {
+  background: linear-gradient(180deg, #fafbfc 0%, #fff 100%) !important;
+  border-bottom: 1px solid rgba(15, 23, 42, 0.06) !important;
+  font-size: 0.95rem;
+  letter-spacing: 0.01em;
+}
+
+.app-shell .jp-cat-card {
+  border: 1px solid rgba(15, 23, 42, 0.06) !important;
+  border-radius: var(--jp-radius-sm) !important;
+  box-shadow: var(--jp-shadow) !important;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s;
+}
+
+.app-shell .jp-cat-card:hover {
+  border-color: rgba(79, 70, 229, 0.25) !important;
+  box-shadow: 0 16px 36px -12px rgba(79, 70, 229, 0.18) !important;
+}
+
+/* —— Typography helpers —— */
+.app-shell .jp-eyebrow,
+.jp-eyebrow {
+  letter-spacing: 0.12em;
+  font-size: 0.7rem !important;
+}
+
+.app-shell .jp-section-title {
+  letter-spacing: -0.02em;
+}
+
+.app-shell .jp-page-header {
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid rgba(15, 23, 42, 0.06);
+}
+
+.app-shell .jp-page-lead .lead {
+  max-width: 42rem;
+}
+
+/* —— Breadcrumbs —— */
+.app-shell .jp-breadcrumb-wrap {
+  display: inline-block;
+  max-width: 100%;
+}
+
+.app-shell .jp-breadcrumb {
+  background: rgba(255, 255, 255, 0.72);
+  backdrop-filter: blur(8px);
+  padding: 0.5rem 1rem !important;
+  border-radius: 999px;
+  border: 1px solid rgba(15, 23, 42, 0.06);
+  font-size: 0.875rem;
+  box-shadow: 0 2px 12px -4px rgba(15, 23, 42, 0.06);
+}
+
+.app-shell .jp-breadcrumb .breadcrumb-item + .breadcrumb-item::before {
+  color: var(--jp-slate-400);
+}
+
+/* —— Hero (home) —— */
+.jp-hero {
+  position: relative;
+  border-radius: var(--jp-radius);
+  overflow: hidden;
+  color: #fff;
+  background: linear-gradient(135deg, #312e81 0%, #4f46e5 38%, #6366f1 70%, #0e7490 100%);
+  box-shadow: 0 20px 50px -15px rgba(79, 70, 229, 0.55);
+}
+
+.jp-hero__glow {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 90% 70% at 10% 0%, rgba(250, 250, 255, 0.18), transparent 50%),
+    radial-gradient(ellipse 60% 50% at 100% 100%, rgba(6, 182, 212, 0.35), transparent 55%);
+  pointer-events: none;
+}
+
+.jp-hero__eyebrow {
+  color: rgba(255, 255, 255, 0.72);
+  letter-spacing: 0.14em;
+}
+
+.jp-hero__title {
+  letter-spacing: -0.03em;
+  text-shadow: 0 2px 24px rgba(0, 0, 0, 0.15);
+}
+
+.jp-hero__lead {
+  color: rgba(255, 255, 255, 0.88);
+  font-weight: 400;
+  font-size: 1.05rem;
+}
+
+.jp-hero-search {
+  border-radius: 999px !important;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.25) !important;
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(10px);
+}
+
+.jp-hero-search__input {
+  background: rgba(255, 255, 255, 0.95) !important;
+  padding-left: 1.35rem !important;
+}
+
+.jp-hero-search__btn {
+  background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%) !important;
+  color: var(--jp-indigo) !important;
+  border: none !important;
+  font-weight: 600 !important;
+}
+
+.jp-hero-search__btn:hover {
+  background: #fff !important;
+  color: var(--jp-indigo-deep) !important;
+}
+
+/* —— Buttons —— */
+.app-shell .btn-primary {
+  background: linear-gradient(135deg, #4f46e5 0%, #6366f1 55%, #7c3aed 100%) !important;
+  border: none !important;
+  font-weight: 600 !important;
+  box-shadow: 0 6px 20px -4px rgba(79, 70, 229, 0.5);
+  transition: transform 0.15s ease, box-shadow 0.2s ease, filter 0.2s;
+}
+
+.app-shell .btn-primary:hover {
+  filter: brightness(1.05);
+  transform: translateY(-1px);
+  box-shadow: 0 10px 28px -4px rgba(79, 70, 229, 0.55);
+}
+
+.app-shell .btn-outline-primary {
+  border-width: 1.5px;
+  font-weight: 600;
+  color: var(--jp-indigo);
+  border-color: rgba(79, 70, 229, 0.35);
+}
+
+.app-shell .btn-outline-primary:hover {
+  background: rgba(79, 70, 229, 0.08);
+  border-color: var(--jp-indigo);
+  color: var(--jp-indigo-deep);
+}
+
+/* —— Forms —— */
+.app-shell .form-control,
+.app-shell .form-select {
+  border-radius: var(--jp-radius-sm);
+  border-color: rgba(15, 23, 42, 0.1);
+}
+
+.app-shell .form-control:focus,
+.app-shell .form-select:focus {
+  border-color: rgba(79, 70, 229, 0.45);
+  box-shadow: 0 0 0 4px rgba(79, 70, 229, 0.12);
+}
+
+/* —— Alerts —— */
+.app-shell .jp-alert {
+  border-radius: var(--jp-radius-sm) !important;
+}
+
+/* —— Dashboard stats —— */
+.jp-stat {
+  border-radius: var(--jp-radius);
+  padding: 1.35rem 1.5rem;
+  color: #fff;
+  position: relative;
+  overflow: hidden;
+  border: none;
+  box-shadow: var(--jp-shadow);
+}
+
+.jp-stat::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.12) 0%, transparent 45%);
+  pointer-events: none;
+}
+
+.jp-stat__label {
+  font-size: 0.8rem;
+  font-weight: 500;
+  opacity: 0.88;
+  margin: 0;
+}
+
+.jp-stat__value {
+  font-size: 2rem;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+}
+
+.jp-stat__hint {
+  opacity: 0.82;
+  font-weight: 500;
+  position: relative;
+  z-index: 1;
+}
+
+.jp-stat--indigo {
+  background: linear-gradient(135deg, #3730a3 0%, #4f46e5 50%, #6366f1 100%);
+  box-shadow: 0 14px 36px -10px rgba(79, 70, 229, 0.55);
+}
+
+.jp-stat--cyan {
+  background: linear-gradient(135deg, #0e7490 0%, #0891b2 45%, #06b6d4 100%);
+  box-shadow: 0 14px 36px -10px rgba(8, 145, 178, 0.45);
+}
+
+.jp-stat--violet {
+  background: linear-gradient(135deg, #5b21b6 0%, #7c3aed 50%, #8b5cf6 100%);
+  box-shadow: 0 14px 36px -10px rgba(124, 58, 237, 0.45);
+}
+
+.app-shell .jp-badge {
+  background: linear-gradient(135deg, #4f46e5, #6366f1) !important;
+  font-weight: 600;
+  padding: 0.4em 0.85em;
+  border-radius: 999px;
+}
+
+.app-shell .jp-pill-role {
+  background: rgba(79, 70, 229, 0.08) !important;
+  color: var(--jp-indigo-deep) !important;
+  border: 1px solid rgba(79, 70, 229, 0.2) !important;
+  font-weight: 600;
+  padding: 0.45em 0.9em;
+  border-radius: 999px;
+}
+
+/* —— Tables —— */
+.app-shell .jp-table thead th {
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-weight: 600;
+  color: var(--jp-slate-600);
+  border: none;
+  padding-top: 1rem;
+  padding-bottom: 0.65rem;
+  background: #f8fafc !important;
+}
+
+.app-shell .jp-table tbody td {
+  border-color: rgba(15, 23, 42, 0.06);
+  vertical-align: middle;
+  padding-top: 0.9rem;
+  padding-bottom: 0.9rem;
+}
+
+.app-shell tr.jp-row-active td {
+  background: rgba(79, 70, 229, 0.07) !important;
+}
+
+.app-shell .jp-applicants-panel {
+  background: linear-gradient(180deg, rgba(248, 250, 252, 0.95) 0%, #fff 100%);
+  border-color: rgba(15, 23, 42, 0.06) !important;
+}
+
+/* —— Swiper —— */
+.app-shell .category-swiper {
+  --swiper-pagination-color: var(--jp-indigo);
+}
+
+/* —— Misc —— */
+.jp-shimmer {
+  animation: jpPulse 1.2s ease-in-out infinite;
+}
+
+@keyframes jpPulse {
+  0%,
+  100% {
+    opacity: 0.55;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+.app-shell .job-detail-bookmark.active {
+  background: linear-gradient(135deg, #4f46e5, #6366f1) !important;
+  border-color: transparent !important;
+  color: #fff !important;
+}
+
+/* —— Navbar mobile + post-job anchor —— */
+.app-shell .jp-navbar-toggler {
+  padding: 0.45rem 0.6rem;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.9);
+}
+
+.app-shell .jp-navbar-toggler:focus {
+  box-shadow: 0 0 0 4px rgba(79, 70, 229, 0.2);
+}
+
+@media (max-width: 991.98px) {
+  .app-shell #navbarScroll {
+    margin-top: 0.75rem;
+    padding: 0.5rem 0 0.25rem;
+    border-top: 1px solid rgba(15, 23, 42, 0.06);
+  }
+}
+
+.app-shell .jp-user-menu-btn {
+  box-shadow: none !important;
+  padding: 0.35rem 0.5rem !important;
+  border-radius: 999px !important;
+}
+
+.app-shell .jp-user-menu-btn:hover {
+  background: rgba(79, 70, 229, 0.06) !important;
+}
+
+/* Post job card (dashboard) + hash scroll */
+.app-shell #post-job {
+  scroll-margin-top: 5.5rem;
+}
+
+.app-shell .jp-post-job-card__banner {
+  background: linear-gradient(120deg, #312e81 0%, #4f46e5 45%, #6366f1 85%, #0e7490 100%);
+}
+
+.app-shell .jp-post-job-flash {
+  animation: jpPostJobFlash 2s ease forwards;
+  outline: 3px solid rgba(79, 70, 229, 0.45);
+  outline-offset: 4px;
+}
+
+@keyframes jpPostJobFlash {
+  0% {
+    box-shadow: 0 0 0 0 rgba(79, 70, 229, 0.35);
+  }
+  30% {
+    box-shadow: 0 0 0 10px rgba(79, 70, 229, 0.12);
+  }
+  100% {
+    box-shadow: var(--jp-shadow);
+  }
+}
+
+.app-shell .jp-post-job-card .form-label {
+  font-weight: 600;
+  font-size: 0.8rem;
+  color: var(--jp-slate-600);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+/* —— Recruiter dashboard: multi-company sidebar —— */
+.app-shell .jp-dash-sidebar {
+  border-radius: var(--jp-radius);
+  border: 1px solid rgba(15, 23, 42, 0.06);
+  background: #fff;
+}
+
+@media (min-width: 992px) {
+  .app-shell .jp-dash-sidebar.sticky-lg-top {
+    top: 5.5rem;
+  }
+}
+
+.app-shell .jp-dash-sidebar__divider {
+  height: 1px;
+  background: rgba(15, 23, 42, 0.08);
+}
+
+.app-shell .jp-dash-sidebar__org-list {
+  max-height: min(40vh, 320px);
+  overflow-y: auto;
+}
+
+.app-shell .jp-dash-sidebar__org {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+  text-align: left;
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  border-radius: var(--jp-radius-sm);
+  padding: 0.55rem 0.75rem;
+  background: #f8fafc;
+  font-size: 0.875rem;
+  color: var(--jp-slate-800);
+  transition: border-color 0.15s ease, background 0.15s ease, box-shadow 0.15s ease;
+}
+
+.app-shell .jp-dash-sidebar__org:hover {
+  border-color: rgba(79, 70, 229, 0.35);
+  background: #fff;
+}
+
+.app-shell .jp-dash-sidebar__org.is-active {
+  border-color: rgba(79, 70, 229, 0.55);
+  background: linear-gradient(135deg, rgba(79, 70, 229, 0.08) 0%, rgba(99, 102, 241, 0.06) 100%);
+  box-shadow: 0 0 0 1px rgba(79, 70, 229, 0.12);
+}
+
+.app-shell .jp-dash-sidebar__org-name {
+  font-weight: 600;
+  line-height: 1.25;
+}
+
+.app-shell .jp-dash-sidebar__org-meta {
+  font-size: 0.72rem;
+  color: var(--jp-slate-600);
+  font-weight: 500;
+}
+
+.app-shell #add-company {
+  scroll-margin-top: 5.5rem;
+}
